@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html ng-app="careerApp">
-  <header>
+  <head>
     <meta charset="utf-8">
-    <title>更多选择</title>
-  </header>
+    <title>用武</title>
+  </head>
   <body>
+    <header>
+      <nav class="navbar navbar-default navbar-fixed-top">
+      </nav>
+
+      <job-searcher>
+        <job-form>
+        </job-form>
+      </job-searcher>
+    </header>
 
     <div class="content">
       <div ng-view></div>
     </div>
 
+    <footer class="footer">
+      <div class="fbar">
+        <a>非营利</a>
+      </div>
+    </footer>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="application/css/index.css">
     <script src="bower_components/angular/angular.min.js" /></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
     <script src="application/entry.js"></script>
+
   </body>
 </html>
