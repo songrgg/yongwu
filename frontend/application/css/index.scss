@@ -18,11 +18,20 @@ body {
 }
 
 .job-input {
-  width: 415px;
+  width: 50%;
+  min-width: 450px;
   height: 32px;
   padding-left: 10px;
   margin-top: 15px;
 }
+
+// auto-complete
+.autocomplete-suggestions { border: 1px solid #999; background: #def; overflow: auto; }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
 
 // footer
 .footer {
