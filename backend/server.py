@@ -1,16 +1,14 @@
 import tornado.ioloop
-from tornado_json.routes import get_routes
-from tornado_json.application import Application
-
-import jobsolr
+import tornado.web
+from search.jobsolr import JobSolrSuggesterHandler
 
 def main():
-	routes = get_routes(jobsolr)
-
-	application = Application(routes=routes, settings={})
+	application = tornado.web.Application([
+		(r"/jobsolr/suggest/(.*)", JobSolrSuggesterHandler)
+	])
 
 	application.listen(8888)
-	tornado.ioloop.ioloop.instance().start()
+	tornado.ioloop.IOLoop.instance().start()
 
 if __name__ == '__main__':
 	main()
