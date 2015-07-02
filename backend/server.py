@@ -11,3 +11,6 @@ def main():
 
 	application.listen(8888)
 	tornado.ioloop.ioloop.instance().start()
+
+if __name__ == '__main__':
+	main()
