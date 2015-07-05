@@ -45,7 +45,11 @@ class JobSolrSuggesterHandler(tornado.web.RequestHandler):
                 'suggest.dictionary': 'mySuggester'
             })
 
-            response = '%s({"query": "%s","suggestions": %s})' % (callback, query, json.dumps(suggestions))
+            _suggestions = []
+            for v in suggestions:
+                _suggestions.append({'value': v['term'], 'data': v['term']})
+
+            response = '%s({"query": "%s","suggestions": %s})' % (callback, query, json.dumps(_suggestions))
             self.write(response)
             return
         except Exception, e:
