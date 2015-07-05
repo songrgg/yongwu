@@ -30,7 +30,7 @@ careerApp
         link: function(scope, element, attrs, formCtrl) {
             $('#jobKd').autocomplete({
                 serviceUrl: 'http://120.26.209.92:8888/jobsolr/suggest/',
-                // paramName: 'suggest.q',
+                paramName: 'suggest.q',
                 dataType:  'jsonp',
                 ajaxSettings: {
                     jsonpCallback: 'jsonCallback',

@@ -1,10 +1,11 @@
 import tornado.ioloop
 import tornado.web
-from search.jobsolr import JobSolrSuggesterHandler
+from search.jobsolr import JobSolrSuggesterHandler, JobSolrSelectHandler
 
 def main():
 	application = tornado.web.Application([
-		(r"/jobsolr/suggest/(.*)", JobSolrSuggesterHandler)
+		(r"/jobsolr/suggest", JobSolrSuggesterHandler),
+        (r"/jobsolr/select", JobSolrSelectHandler)
 	])
 
 	application.listen(8888)
