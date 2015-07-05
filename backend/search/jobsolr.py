@@ -45,8 +45,8 @@ class JobSolrSuggesterHandler(tornado.web.RequestHandler):
                 'suggest.dictionary': 'mySuggester'
             })
 
-            response = '%s({"query": "%s","suggestions": %s})' % (callback, query, suggestions)
-            self.write(json.dumps(response))
+            response = '%s({"query": "%s","suggestions": %s})' % (callback, query, json.dumps(suggestions))
+            self.write(response)
             return
         except Exception, e:
             self.logger.error("suggest query for `%s`" % query)
@@ -69,7 +69,7 @@ class JobSolrSelectHandler(tornado.web.RequestHandler):
         self.logger.addHandler(self.handler)
 
     def get(self):
-        query = self.get_argument('query', '')
+        query = self.get_argument('query', 'P')
         start = self.get_argument('start', 0)
         rows = self.get_argument('rows', 10) # default 10 items per page
         callback = self.get_argument('callback', 'jsonCallback')
@@ -78,15 +78,15 @@ class JobSolrSelectHandler(tornado.web.RequestHandler):
 
         try:
             rsp = service.select({
-                'q': 'P',
+                'q': query,
                 "wt": "json",
                 'start': start,
                 'rows': rows
             })
 
-            self.write('{0}({1})'.format(callback, json.dumps(rsp)))
+            self.write('%s(%s)' % (callback, json.dumps(rsp)))
             return
         except Exception, e:
-            self.logger.error("suggest query for `%s`" . query)
+            self.logger.error("suggest query for `%s`" % query)
 
-        self.write('{0}({})'.format(callback))
+        self.write('%s({})' % callback)
