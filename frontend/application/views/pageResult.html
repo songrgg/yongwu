@@ -1,0 +1,14 @@
+
+<div>
+    <div ng-repeat="position in rows.docs" class="job-card">
+        <span>{{position.positionName}}</span>
+        <a href="{{position.website}}">{{position.companyName}}</a>
+        <br/>
+        <span>{{position.salary}}</span>
+        <span>{{position.city}}</span>
+    </div>
+</div>
+<div ng-if="rows.numFound > 0">共找到结果{{rows.numFound}}条.</div>
+<div ng-if="rows.numFound > 0">第{{curpage}}页</div>
+<span ng-if="rows.numFound > 0 && curpage>1" ng-click="prevPage()">上一页</span>
+<span ng-if="curpage*10<rows.numFound"><i ng-click="nextPage()">下一页</i></span>
