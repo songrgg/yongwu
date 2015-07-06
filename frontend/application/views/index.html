@@ -1,10 +1,7 @@
 
-<div ng-if="searchResults.numFound > 0">共找到结果{{searchResults.numFound}}条.</div>
-<ul>
-    <li ng-repeat="position in searchResults.docs">
-        <div>{{position.positionName}}</div>
-        <div>{{position.companyName}}</div>
-        <div>{{position.sallary}}</div>
-        <div>{{position.city}}</div>
-    </li>
-</ul>
+<job-searcher>
+	<job-form>
+	</job-form>
+</job-searcher>
+<page-result rows="searchResults">
+</page-result>
