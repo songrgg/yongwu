@@ -35,6 +35,8 @@ class JobSolrSuggesterHandler(tornado.web.RequestHandler):
 
         service = JobSolrService('120.26.209.92', '9998', replica='jobsearch_shard1_replica1')
 
+        self.set_header("Content-Type", "application/json")
+
         try:
             suggestions = service.suggest({
                 'suggest.q': query,
@@ -79,6 +81,8 @@ class JobSolrSelectHandler(tornado.web.RequestHandler):
         callback = self.get_argument('callback', 'jsonCallback')
 
         service = JobSolrService('120.26.209.92', '9998', replica='jobsearch_shard1_replica1')
+
+        self.set_header("Content-Type", "application/json")
 
         try:
             rsp = service.select({
