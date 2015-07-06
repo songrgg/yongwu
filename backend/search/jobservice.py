@@ -61,7 +61,7 @@ class JobSolrService(JobService):
         """
         reqString = 'http://{0}:{1}/solr/{2}suggest?{3}'.format(
             self.host, self.port, self.replica,
-            urllib.urlencode(options))
+            urllib.urlencode(options)
         )
 
         if 'suggest.q' in options:
@@ -117,7 +117,9 @@ class JobSolrService(JobService):
 
         reqString = 'http://{0}:{1}/solr/{2}select?{3}'.format(
             self.host, self.port, self.replica,
-            urllib.urlencode(options))
+            urllib.urlencode(options)
+        )
+        self.logger.debug(reqString)
 
         try:
             conn = urlopen(reqString)
