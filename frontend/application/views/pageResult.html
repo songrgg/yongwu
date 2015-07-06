@@ -9,6 +9,6 @@
     </div>
 </div>
 <div ng-if="rows.numFound > 0">共找到结果{{rows.numFound}}条.</div>
-<div>{{curpage}}页</div>
-<span ng-if="curpage>1" ng-click="curpage=curpage-1">上一页</span>
-<span ng-if="curpage*10<rows.numFound"><i ng-click="curpage = curpage + 1">下一页</i></span>
+<div ng-if="rows.numFound > 0">第{{curpage}}页</div>
+<span ng-if="rows.numFound > 0 && curpage>1" ng-click="prevPage()">上一页</span>
+<span ng-if="curpage*10<rows.numFound"><i ng-click="nextPage()">下一页</i></span>

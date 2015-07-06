@@ -6,6 +6,7 @@ select functions.
 """
 
 from urllib2 import *
+import urllib
 from datetime import date
 import logging
 import json
@@ -60,7 +61,7 @@ class JobSolrService(JobService):
         """
         reqString = 'http://{0}:{1}/solr/{2}suggest?{3}'.format(
             self.host, self.port, self.replica,
-            '&'.join('{0}={1}'.format(k, options[k]) for k in options)
+            urllib.urlencode(options))
         )
 
         if 'suggest.q' in options:
@@ -116,7 +117,7 @@ class JobSolrService(JobService):
 
         reqString = 'http://{0}:{1}/solr/{2}select?{3}'.format(
             self.host, self.port, self.replica,
-            '&'.join('{0}={1}'.format(k, options[k]) for k in options))
+            urllib.urlencode(options))
 
         try:
             conn = urlopen(reqString)

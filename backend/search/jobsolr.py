@@ -73,7 +73,7 @@ class JobSolrSelectHandler(tornado.web.RequestHandler):
         self.logger.addHandler(self.handler)
 
     def get(self):
-        query = self.get_argument('query', 'P')
+        query = self.get_argument('q', 'P')
         start = self.get_argument('start', 0)
         rows = self.get_argument('rows', 10) # default 10 items per page
         callback = self.get_argument('callback', 'jsonCallback')

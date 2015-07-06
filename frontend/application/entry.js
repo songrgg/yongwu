@@ -68,7 +68,7 @@ careerApp
         templateUrl: 'application/views/jobForm.html'
     };
 })
-.directive('pageResult', function($rootScope) {
+.directive('pageResult', function($rootScope, jobselect) {
     return {
         restrict: 'E',
         transclude: true,
@@ -77,6 +77,14 @@ careerApp
             console.log($rootScope.rows);
         	$rootScope.curpage = 1;
         	$rootScope.perpage = 10;
+
+            scope.nextPage = function() {
+                $rootScope.curpage += 1;
+            };
+
+            scope.prevPage = function() {
+                $rootScope.curpage -= 1;
+            };
 
             $rootScope.$watch('curpage', function(newValue, oldValue) {
             	if ($rootScope.jobKd && $rootScope.jobKd != '') {
@@ -98,7 +106,8 @@ careerApp.factory('jobselect', ['$http', function($http) {
 	return function(keyword, start, rows, callback) {
 		console.log('select for ' + keyword);
 
-		$http.jsonp('http://120.26.209.92:8888/jobsolr/select?callback=JSON_CALLBACK&query=' +keyword+'&start='+start+'&rows='+rows).
+        keyword = encodeURIComponent(keyword);
+		$http.jsonp('http://120.26.209.92:8888/jobsolr/select?callback=JSON_CALLBACK&q=' +keyword+'&start='+start+'&rows='+rows).
 			success(function(data, status, headers, config) {
 				callback(data);
 			}).
