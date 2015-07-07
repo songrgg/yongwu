@@ -7,6 +7,14 @@ body {
   	font-family: arial,sans-serif;
 }
 
+.logo {
+  height: $logo-height;
+
+  img {
+    width: $logo-width;
+  }
+}
+
 // form
 .search-control {
     padding-top: 115px;
