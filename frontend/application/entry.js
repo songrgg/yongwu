@@ -56,6 +56,10 @@ careerApp
             $('#jobKd').bind('keypress', function() {
                 if (!$('.job-form').hasClass('job-form-nav')) {
                     $('.job-form').addClass('job-form-nav');
+                    $('nav').append($('job-searcher'));
+
+                    $('.job-input').addClass('form-navbar');
+                    $('.job-button').addClass('form-navbar');
                 }
                 if (!$('.job-form .form-group').hasClass('form-group-nav')) {
                     $('.job-form .form-group').addClass('form-group-nav');
@@ -68,12 +72,11 @@ careerApp
         templateUrl: 'application/views/jobForm.html'
     };
 })
-.directive('pageResult', function($rootScope, jobselect) {
+.directive('pageResult', function($rootScope, jobselect, $window) {
     return {
         restrict: 'E',
         transclude: true,
         link: function(scope, element, attrs) {
-            console.log('pageResult->>>');
             console.log($rootScope.rows);
         	$rootScope.curpage = 1;
         	$rootScope.perpage = 10;
@@ -84,6 +87,10 @@ careerApp
 
             scope.prevPage = function() {
                 $rootScope.curpage -= 1;
+            };
+
+            scope.gotoOrigin = function(url) {
+                $window.open(url, '_blank');
             };
 
             $rootScope.$watch('curpage', function(newValue, oldValue) {

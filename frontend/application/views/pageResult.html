@@ -1,14 +1,31 @@
 
 <div>
+	<div ng-if="rows.numFound > 0" class="result-count">共找到结果{{rows.numFound}}条.</div>
     <div ng-repeat="position in rows.docs" class="job-card">
+        <img style="height: 40px;" alt="" ng-src="http://www.lagou.com/{{position.companyLogo}}"></img>
         <span>{{position.positionName}}</span>
         <a href="{{position.website}}">{{position.companyName}}</a>
+        <span style="float:right">{{position.positionType}}</span>
         <br/>
         <span>{{position.salary}}</span>
         <span>{{position.city}}</span>
+
+        <!-- <span>{{position.companySize}}</span> -->
+        <span>{{position.financeStage}}</span>
+        <span>{{position.industryField}}</span>
+
+        <span>{{position.education}}</span>
+        <span>{{position.workYear}}</span>
+        <!-- <span>{{position.jobDescription}}</span> -->
+        <span>{{position.positionAdvantage}}</span>
+
+        <br />
+        <a style="cursor:pointer;" ng-click="gotoOrigin(position.originUrl);">去{{position.fromWhich}}查看更多</a>
     </div>
+
+    <div class="page-pos">
+		<span class="prev" ng-if="rows.numFound > 0 && curpage>1" ng-click="prevPage()">上一页</span>
+		<span class="curpage" ng-if="rows.numFound > 0">{{curpage}}</span>
+		<span class="next" ng-if="curpage*10<rows.numFound" ng-click="nextPage()">下一页</span>
+	</div>
 </div>
-<div ng-if="rows.numFound > 0">共找到结果{{rows.numFound}}条.</div>
-<div ng-if="rows.numFound > 0">第{{curpage}}页</div>
-<span ng-if="rows.numFound > 0 && curpage>1" ng-click="prevPage()">上一页</span>
-<span ng-if="curpage*10<rows.numFound"><i ng-click="nextPage()">下一页</i></span>

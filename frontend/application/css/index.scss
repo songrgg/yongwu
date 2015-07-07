@@ -4,7 +4,8 @@ body {
 	margin: $body-margin;
 	padding: $body-padding;
 	text-align: center; // make logo center
-  	font-family: arial,sans-serif;
+	font-family: arial,sans-serif;
+  background-color: #e9eaed;
 }
 
 .logo {
@@ -25,23 +26,20 @@ body {
 }
 
 .job-form {
-  width: 413px;
   display: inline;
+  width: 600px;
+  height: 46px;
 }
 
 .job-card {
   text-align: left;
   padding: 8px;
-  margin-bottom: 5px;
+  margin: 0 5px 5px 5px;
+  background-color: #fff;
 }
 
 // job form when in navbar
 .job-form-nav {
-    position: absolute;
-    top: 0;
-    z-index: 9999;
-    left: 0;
-    width: 100%;
 }
 
 .job-input {
@@ -50,6 +48,19 @@ body {
   height: 32px;
   padding-left: 10px;
   margin-top: 15px;
+  border-radius: 4px;
+  border: 1px solid transparent
+}
+
+.form-navbar {
+  float: left;
+}
+
+.job-button {
+  margin-top: 15px;
+  height: 32px;
+  border-radius: 4px;
+  border: 1px solid transparent
 }
 
 // form group in navbar
@@ -70,7 +81,7 @@ body {
   bottom: 0;
   font-size: 10pt;
   height: 35px;
-  position: absolute;
+  position: fixed;
   width: 100%;
 }
 
@@ -82,5 +93,42 @@ body {
 
   a {
   	text-decoration: none;
+  }
+}
+
+// page result
+.result-count {
+  padding: 0 0 4px 8px;
+  text-align: left;
+  color: #666;
+}
+
+.page-pos {
+  color: #666;
+
+  .curpage {
+    background: #f2f8ff;
+    border: 1px solid #e1e2e3;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    line-height: 34px;
+  }
+
+  .next, .prev {
+    background: #f2f8ff;
+    border: 1px solid #e1e2e3;
+    padding: 0px 4px 0px 4px;
+    height: 34px;
+    cursor: pointer;
+    line-height: 34px;
+  }
+
+  .curpage:hover, .next:hover, .prev:hover {
+    border: 1px solid #38f;
+  }
+
+  span {
+    display: inline-block;
   }
 }
