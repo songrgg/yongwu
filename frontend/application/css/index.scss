@@ -1,11 +1,25 @@
 @import 'variables';
 
 body {
-	margin: $body-margin;
-	padding: $body-padding;
-	text-align: center; // make logo center
-	font-family: arial,sans-serif;
-  background-color: #e9eaed;
+  margin: $body-margin;
+  padding: $body-padding;
+  text-align: center; // make logo center
+  font-family: arial,sans-serif;
+  //background-color: #e9eaed;
+  background-color: #f8f8f8;
+}
+
+.logo-nav {
+  display: none;
+}
+
+.navbar-default {
+  .logo-nav {
+    cursor: pointer;
+    float:left;
+    margin-top: 12px;
+    display: inline;
+  }
 }
 
 .logo {
@@ -59,6 +73,7 @@ body {
 .job-button {
   margin-top: 15px;
   height: 32px;
+  color: #FFFFFF;
   border-radius: 4px;
   border: 1px solid transparent
 }
@@ -92,7 +107,7 @@ body {
   min-width: 980px;
 
   a {
-  	text-decoration: none;
+    text-decoration: none;
   }
 }
 

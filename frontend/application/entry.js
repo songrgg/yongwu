@@ -56,7 +56,8 @@ careerApp
             $('#jobKd').bind('keypress', function() {
                 if (!$('.job-form').hasClass('job-form-nav')) {
                     $('.job-form').addClass('job-form-nav');
-                    $('nav').append($('job-searcher'));
+                    //$('nav').append($('job-searcher'));
+                    $('nav').addClass('navbar-default');
 
                     $('.job-input').addClass('form-navbar');
                     $('.job-button').addClass('form-navbar');
