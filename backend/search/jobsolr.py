@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # tornado packages
 import tornado.ioloop
 import tornado.web
@@ -39,9 +42,8 @@ class JobSolrSuggesterHandler(tornado.web.RequestHandler):
 
         try:
             suggestions = service.suggest({
-                'suggest.q': query,
+                'suggest.q': query.encode('utf-8'),
                 "wt": "json",
-                # "indent": "true",
                 'suggest': 'true',
                 'suggest.build': 'true',
                 'suggest.dictionary': 'mySuggester'
@@ -86,7 +88,8 @@ class JobSolrSelectHandler(tornado.web.RequestHandler):
 
         try:
             rsp = service.select({
-                'q': query,
+                # 'q': '%E7%94%B5',
+                'q': query.encode('utf-8'),
                 "wt": "json",
                 'start': start,
                 'rows': rows
@@ -94,7 +97,7 @@ class JobSolrSelectHandler(tornado.web.RequestHandler):
 
             self.write('%s(%s)' % (callback, json.dumps(rsp)))
             return
-        except Exception, e:
-            self.logger.error("suggest query for `%s`" % query)
+        except Exception as e:
+			self.logger.error("suggest query for `%s`" % query)
 
         self.write('%s({})' % callback)
