@@ -7,6 +7,11 @@ body {
   text-align: center;
   font-family: arial,sans-serif; }
 
+.logo {
+  height: 130px; }
+  .logo img {
+    width: 570px; }
+
 .search-control {
   padding-top: 115px; }
 
