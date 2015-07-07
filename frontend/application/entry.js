@@ -27,9 +27,28 @@ careerApp
         transclude: true,
         controller: function($scope) {
 
+            // toggle the search form to the top of navbar.
+            var toggle = function() {
+                if (!$('.job-form').hasClass('job-form-nav')) {
+                    $('.job-form').addClass('job-form-nav');
+                    //$('nav').append($('job-searcher'));
+                    $('nav').addClass('navbar-default');
+
+                    $('.job-input').addClass('form-navbar');
+                    $('.job-button').addClass('form-navbar');
+                }
+                if (!$('.job-form .form-group').hasClass('form-group-nav')) {
+                    $('.job-form .form-group').addClass('form-group-nav');
+                }
+                // hide the logo
+                $('.search-control .logo').hide();
+                $('.search-control').addClass('search-control-nav');
+            };
+
             $scope.$watch('jobKd', function(newValue, oldValue) {
                 if ($scope.jobKd && $scope.jobKd != '') {
                     console.log($scope.jobKd);
+                    toggle();
                     $rootScope.jobKd = $scope.jobKd;
                     jobselect($scope.jobKd, 0, 10, function(data) {
                         $rootScope.rows = data;
@@ -53,22 +72,7 @@ careerApp
                 }
             });
 
-            $('#jobKd').bind('keypress', function() {
-                if (!$('.job-form').hasClass('job-form-nav')) {
-                    $('.job-form').addClass('job-form-nav');
-                    //$('nav').append($('job-searcher'));
-                    $('nav').addClass('navbar-default');
-
-                    $('.job-input').addClass('form-navbar');
-                    $('.job-button').addClass('form-navbar');
-                }
-                if (!$('.job-form .form-group').hasClass('form-group-nav')) {
-                    $('.job-form .form-group').addClass('form-group-nav');
-                }
-                // hide the logo
-                $('.search-control .logo').hide();
-                $('.search-control').addClass('search-control-nav');
-            });
+            $('#jobKd').bind('keypress', toggle);
         },
         templateUrl: 'application/views/jobForm.html'
     };

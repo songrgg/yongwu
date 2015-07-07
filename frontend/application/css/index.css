@@ -62,8 +62,8 @@ body {
   display: inline; }
 
 .autocomplete-suggestions {
-  border: 1px solid #999;
-  background: #def;
+  border: 1px solid #eee;
+  background: #fff;
   overflow: auto; }
 
 .autocomplete-suggestion {
