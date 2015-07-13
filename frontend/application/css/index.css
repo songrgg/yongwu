@@ -1,26 +1,14 @@
 /*
  * CSS Variables
  */
-body {
-  margin: 0;
-  padding: 60px 0 40px 0;
-  text-align: center;
-  font-family: arial,sans-serif;
-  background-color: #f8f8f8; }
+form .error {
+  color: #bb1f34;
+  font-size: 1em;
+  margin-top: 5px;
+  text-align: left; }
 
-.logo-nav {
-  display: none; }
-
-.navbar-default .logo-nav {
-  cursor: pointer;
-  float: left;
-  margin-top: 12px;
-  display: inline; }
-
-.logo {
-  height: 130px; }
-  .logo img {
-    width: 570px; }
+form h1 {
+  text-align: left; }
 
 .search-control {
   padding-top: 115px; }
@@ -48,9 +36,6 @@ body {
   border-radius: 4px;
   border: 1px solid transparent; }
 
-.form-navbar {
-  float: left; }
-
 .job-button {
   margin-top: 15px;
   height: 32px;
@@ -60,6 +45,43 @@ body {
 
 .form-group-nav {
   display: inline; }
+
+nav {
+  height: 34px;
+  background-color: #2d2d2d; }
+  nav a {
+    color: #ccc; }
+  nav a:hover {
+    color: #fff; }
+
+body {
+  margin: 0 0 41px 0;
+  text-align: center;
+  font-family: arial,sans-serif;
+  background-color: #f8f8f8; }
+
+small {
+  font-size: 85%; }
+
+.logo-nav-left {
+  cursor: pointer;
+  float: left;
+  margin-top: 3px;
+  display: inline;
+  height: 31px; }
+
+.login-button {
+  float: right;
+  line-height: 34px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 5px 0 5px;
+  /* background-color: #000; */ }
+
+.logo {
+  height: 130px; }
+  .logo img {
+    width: 570px; }
 
 .autocomplete-suggestions {
   border: 1px solid #eee;
@@ -100,6 +122,9 @@ body {
   .fbar a {
     text-decoration: none; }
 
+page-result {
+  width: 100%; }
+
 .result-count {
   padding: 0 0 4px 8px;
   text-align: left;
@@ -125,3 +150,5 @@ body {
     border: 1px solid #38f; }
   .page-pos span {
     display: inline-block; }
+
+/*# sourceMappingURL=index.css.map */

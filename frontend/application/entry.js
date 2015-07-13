@@ -3,7 +3,13 @@
 var careerApp = angular.module('careerApp',['ngRoute']);
 
 careerApp.controller('IndexCtrl', ['$scope',
-    function($scope, $rootScope) {
+    function($scope) {
+        "use strict";
+    }
+]);
+
+careerApp.controller('RegisterCtrl', ['$scope',
+    function($scope) {
         "use strict";
     }
 ]);
@@ -32,7 +38,7 @@ careerApp
                 if (!$('.job-form').hasClass('job-form-nav')) {
                     $('.job-form').addClass('job-form-nav');
                     //$('nav').append($('job-searcher'));
-                    $('nav').addClass('navbar-default');
+                    // $('nav').addClass('navbar-default');
 
                     $('.job-input').addClass('form-navbar');
                     $('.job-button').addClass('form-navbar');
@@ -139,6 +145,10 @@ careerApp.config(['$routeProvider',function ($routeProvider) {
         .when('/search', {
             templateUrl: '/search',
             controller: 'SearchCtrl'
+        })
+        .when('/register', {
+            templateUrl: 'application/views/register.html',
+            controller: 'RegisterCtrl'
         })
         .otherwise({
             redirectTo: '/index'
