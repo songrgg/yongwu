@@ -1,0 +1,31 @@
+{
+  "name": "srjiang",
+  "version": "0.0.1",
+  "authors": [
+    "srjiang <srjiang@outlook.com>"
+  ],
+  "description": "For the yongwu.org.",
+  "main": "application/entry.js",
+  "keywords": [
+    "yongwu.org",
+    "based",
+    "on",
+    "angularjs."
+  ],
+  "license": "MIT",
+  "homepage": "www.yongwu.org",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.4.2",
+    "angular-route": "~1.4.1",
+    "bootstrap": "~3.3.5",
+    "devbridge-autocomplete": "~1.2.21",
+    "jquery": "~2.1.4"
+  }
+}

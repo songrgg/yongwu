@@ -1,7 +1,5 @@
-// route `/index`
-careerApp.controller('IndexCtrl', ['$scope', '$rootScope',
-    function($scope, $rootScope) {
+careerApp.controller('IndexCtrl', ['$scope',
+    function($scope) {
         "use strict";
-        console.log("test");
     }
 ]);

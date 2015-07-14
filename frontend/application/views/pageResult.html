@@ -2,8 +2,8 @@
 <div>
 	<div ng-if="rows.numFound > 0" class="result-count">共找到结果{{rows.numFound}}条.</div>
     <div ng-repeat="position in rows.docs" class="job-card">
-        <img style="height: 40px;" alt="" ng-src="http://www.lagou.com/{{position.companyLogo}}"></img>
-        <span>{{position.positionName}}</span>
+        <img style="height: 40px;" alt="" ng-src="http://www.lagou.com/{{position.companyLogo}}" title="{{position.companyName}}" ng-click="gotoOrigin(position.website)" style="cursor:pointer;"></img>
+        <!-- <span>{{position.positionName}}</span> -->
         <a href="{{position.website}}">{{position.companyName}}</a>
         <span style="float:right">{{position.positionType}}</span>
         <br/>
