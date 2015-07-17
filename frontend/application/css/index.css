@@ -52,7 +52,8 @@ nav {
   nav a {
     color: #ccc; }
   nav a:hover {
-    color: #fff; }
+    color: #fff;
+    text-decoration: initial; }
 
 body {
   margin: 0 0 41px 0;
