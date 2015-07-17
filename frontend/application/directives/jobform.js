@@ -57,10 +57,9 @@ careerApp.directive('jobSearcher', function() {
                 },
                 onSelect: function(suggestion) {
                     console.log('You selected: ' + suggestion.value + ', ' + suggestion.data);
-                }
+                },
+                onSearchStart: toggle
             });
-
-            $('#jobKd').bind('keypress', toggle);
         },
         templateUrl: 'application/views/jobForm.html'
     };
